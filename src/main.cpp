@@ -53,7 +53,7 @@ int main() {
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
 
-	Shader shader("/home/blake/projects/RayMarch/shaders/vertex.glsl", "/home/blake/projects/RayMarch/shaders/fragment.glsl");
+	Shader shader("shaders/vertex.glsl", "shaders/fragment.glsl");
 
 	unsigned int texture;
 	glGenTextures(1, &texture);
@@ -122,33 +122,33 @@ int main() {
 		}
 
 		float velocity = 5.0 * deltaTime;
-		if(jump) {
-			frame++;
-		}
-		if(frame >= 1 && frame <= 30) {
-			camera.Position.y += 5.0 * velocity;
-		} 
-		if(frame >= 100) {
-			frame = 0;
-			jump = false;
-		}
+////////	if(jump) {
+////////		frame++;
+////////	}
+////////	if(frame >= 1 && frame <= 30) {
+////////		camera.Position.y += 5.0 * velocity;
+////////	} 
+////////	if(frame >= 100) {
+////////		frame = 0;
+////////		jump = false;
+////////	}
 		
 
 		//input
 		processInput(window);
 
-		camera.Position.y -= 9.8 * deltaTime;
-		if(camera.Position.y >= 4.5 || camera.Position.y <= -4.5) {
-			camera.Position.y = posY;
-		}
+////////	camera.Position.y -= 9.8 * deltaTime;
+////////	if(camera.Position.y >= 4.5 || camera.Position.y <= -4.5) {
+////////		camera.Position.y = posY;
+////////	}
 
-		if(camera.Position.x >= 9.5 || camera.Position.x <= -9.5) {
-			camera.Position.x = posX;
-		}
+////////	if(camera.Position.x >= 9.5 || camera.Position.x <= -9.5) {
+////////		camera.Position.x = posX;
+////////	}
 
-		if(camera.Position.z >= 6.5 || camera.Position.z <= -6.5) {
-			camera.Position.z = posZ;
-		}
+////////	if(camera.Position.z >= 6.5 || camera.Position.z <= -6.5) {
+////////		camera.Position.z = posZ;
+////////	}
 
 		
 		glClear(GL_COLOR_BUFFER_BIT); 
@@ -204,8 +204,8 @@ void processInput(GLFWwindow *window) {
 	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
 		camera.ProcessKeyboard(RIGHT, deltaTime);
 
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
-		jump = true;
+//	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS)
+//		camera.Position.z += 5;
 }
 
 void mouse_callback(GLFWwindow* window, double xposIn, double yposIn) {
