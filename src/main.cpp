@@ -1,9 +1,9 @@
 #include <iostream>
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <Shader/Shader.h>
-#include <Camera/camera.h>
-#include <Texture/stb_image.h>
+#include "include/glad/glad.h"
+#include "include/GLFW/glfw3.h"
+#include "include/Shader/Shader.h"
+#include "include/Camera/camera.h"
+#include "include/Texture/stb_image.h"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
